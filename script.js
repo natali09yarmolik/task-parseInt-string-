@@ -450,21 +450,65 @@ console.log(checkAge(17));*/
         
         const failuresList = makeList(result.failure);*/
         function parseInt(string) {
-        let masiv="";
-    let mas="";
-    let masiv2="";
-    let str = string.split(' ');
-    console.log(str);
-    let a;
-    let b;
-    let c;
-    let count=str.length;
-    if (count==1){
-      a=str[0];
-      masiv = num(a);
-     }
-        function num(n){
-          switch (n){
+          let n=0;
+          let k=0;
+          let sum=0;
+          let string1="";
+          let string2="";
+          let arr=0;
+          let strArr="";
+          string1=string.replace(/ and /g, " ");
+         string2=string.replace(/ and /g, " ");
+if(string.indexOf("million")>=0)
+{
+return 1000000;
+}
+if(string.indexOf("thousand")>=0)
+{
+  k=string1.indexOf("thousand");
+  strArr=string1.slice(0, string1.indexOf("thousand")-1);
+  sum+=Int(strArr)*1000;
+  string1=string2.slice(k+9);
+  
+}
+ if(string1.length>0)
+ {
+  sum+=Int(string1);
+  
+ }
+  function Int(str)
+  { arr=0;
+ string1=str;
+  if(string1.indexOf("hundred")>=0)
+    {
+    n=string1.indexOf("hundred");
+    str=string1.slice(0,n-1);
+    arr+=num(str)*100;
+   
+    string1=string1.slice(n+8);
+    
+    }
+  if(string1.indexOf("ty")>=0)
+    {
+    n=string1.indexOf("ty");
+    str=string1.slice(n-3,n);
+    
+    arr+=tenth(str)*10;
+   
+    string1=string1.slice(n+3);
+    
+    }
+  if(string1.length>0) {
+    arr+=num(string1);
+    }
+    return arr;
+    }
+    
+    function num(str1){
+         
+          let mas=0;
+          switch (str1){
+          case "zero": mas =0; break;  
           case "one": mas =1; break;
           case "two": mas =2; break;
           case "three": mas =3; break;
@@ -474,91 +518,35 @@ console.log(checkAge(17));*/
           case "seven": mas =7; break;
           case "eight": mas =8; break;
           case "nine": mas =9; break;
-          case 0: break;
+          case "ten": mas =10; break;
+          case "eleven": mas =11; break;
+          case "twelve": mas =12; break;
+          case "thirteen": mas =13; break;
+          case "fourteen": mas =14; break;
+          case "fifteen": mas =15; break;
+          case "sixteen": mas =16; break;
+          case "seventeen": mas =17; break;
+          case "eighteen": mas =18; break;
+          case "nineteen": mas =19; break;
       } 
         return mas;
         }
-
-       function tenth(a,b){ 
-         console.log(a,b);    
-      if(a==1 && b==0)
-        { masiv += "ten";}
-        else
-        if(a==1 && b==1)
-        { masiv += "eleven";}
-        else
-        if(a==1 && b==2)
-        { masiv += "twelve";}
-        else
-        if(a==1 && b==3)
-        { masiv += "thirteen";}
-        else
-        if(a==1 && b==5)
-        { masiv += "fifteen";}
-        else
-        if(a==1 && b==8)
-        { masiv += "eighteen";}
-        else if (a==1)
-        { masiv += num(b)+"teen";}
-        if (a==2 && b==0)
-        { masiv += "twenty";}
-        else if (a==2)
-        { masiv += "twenty"+ " "+ num(b);}
-        if (a==3 && b==0)
-        { masiv += "thirty";}
-        else if (a==3)
-        { masiv += "thirty"+ " "+ num(b);}
-        if (a==4 && b==0)
-        { masiv += "forty";}
-        else if (a==4)
-        { masiv += "forty"+ " "+ num(b);}
-        if (a==5 && b==0)
-        { masiv += "fifty";}
-        else if (a==5)
-        { masiv += "fifty"+" "+ num(b);}
-        if (a==6 && b==0)
-        { masiv += "sixty";}
-        else if (a==6)
-        { masiv += "sixty"+" "+ num(b);}
-        if (a==7 && b==0)
-        { masiv += "seventy";}
-        else if (a==7)
-        { masiv += "seventy"+" "+ num(b);}
-        if (a==8 && b==0)
-        { masiv += "eighty";}
-        else if (a==8)
-        { masiv += "eighty"+" "+ num(b);}
-        if (a==9 && b==0)
-        { masiv += "ninety";}
-        else if (a==9)
-        { masiv += "ninety"+" "+ num(b);}
-        
-        return masiv;
-       }
-
-      if (count==2)
-      { a=+str[0];
-        b=+str[1];
-        
-         masiv += tenth(a,b); 
+        function tenth (str1){
+          let mas=0;
+          switch (str1){
+          case "wen": mas =2; break;
+          case "hir": mas =3; break;
+          case "for": mas =4; break;
+          case "fif": mas =5; break;
+          case "six": mas =6; break;
+          case "ven": mas =7; break;
+          case "igh": mas =8; break;
+          case "ine": mas =9; break;
+      } 
+        return mas;
         }
-
-
-    if(count == 3)
-    { a = +str[0];
-      b=+str[1];
-      c=+str[2];
-      if(b==0 && c==0){
-        masiv=num(a)+" " +"hundred";
-      }
-      else 
-      if (b==0)
-      { masiv=num(a)+" " +"hundred"+" " +num(c);
+    
+   return sum;
     }
-    else{ masiv=num(a)+" " +"hundred"+ " "+tenth(b,c);}
-        
-    }
-   return masiv;
-    }
-    console.log(parseInt('one'));
-    parseInt('one');
+    console.log(parseInt('seven hundred eighty-three thousand nine hundred and nineteen'));
+    parseInt('seven hundred eighty-three thousand nine hundred and nineteen');
