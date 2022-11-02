@@ -569,13 +569,31 @@ if(string.indexOf("thousand")>=0)
   decompose(50);*/
   function multiply(a, b)
   {
-    let a1=BigInt(Number(a));
-    let b1=BigInt(Number(b));
-    console.log(a,b);
-    let proiz=0;
-    proiz=a1*b1;
-    return String(proiz);
+    let a1=a.replace(/^0+/g,"").split("");
+    let b1=b.replace(/^0+/g,"").split("");
+    let m=0;
+   
+    let proiz=[];
+    for(let i=0; i<a1.length; i++)
+    { 
+      for(let j=0; j<b1.length; j++)
+      { 
+        m=a1[i]*b1[j];
+        
+         proiz[i+j]=(proiz[i+j])?proiz[i+j]+m: m; 
+         
+      }
+    }
+    for(let k=proiz.length-1; k>=1; k--){
+      if(proiz[k]-10>=0)
+      {
+       // console.log(proiz[k]%10, Math.floor(proiz[k]/10));
+        proiz[k-1]=proiz[k-1]+Math.floor(proiz[k]/10);
+        proiz[k]=proiz[k]%10;
+        
+      }
+    }
+    return proiz.join("").length>0?proiz.join(""):"0";
   }
-  console.log(multiply("1020303004875647366210", "2774537626200857473632627613"));
-  multiply("1020303004875647366210", "2774537626200857473632627613");
-  2830869077153280552556547081187254342445169156730
+  console.log(multiply("0", "30"));
+  multiply("0", "30");
