@@ -449,7 +449,7 @@ console.log(checkAge(17));*/
         }
         
         const failuresList = makeList(result.failure);*/
-        function parseInt(string) {
+       /* function parseInt(string) {
           let n=0;
           let k=0;
           let sum=0;
@@ -549,4 +549,33 @@ if(string.indexOf("thousand")>=0)
    return sum;
     }
     console.log(parseInt('seven hundred eighty-three thousand nine hundred and nineteen'));
-    parseInt('seven hundred eighty-three thousand nine hundred and nineteen');
+    parseInt('seven hundred eighty-three thousand nine hundred and nineteen');*/
+
+   /* function decompose(n) {
+     let m=0;
+     let arr=[];
+     let n=0;
+     m=Math.pow(n,2)-Math.pow(n-1,2); 
+     n=m;
+     arr.unshift(n-1);
+     while(Number.isInteger (Math.sqrt(m))!==true)
+     { m--;
+     }
+     arr.unshift(Math.sqrt(m));
+     n=n-m;
+     console.log(arr, m,n);
+     
+  }
+  decompose(50);*/
+  function multiply(a, b)
+  {
+    let a1=BigInt(Number(a));
+    let b1=BigInt(Number(b));
+    console.log(a,b);
+    let proiz=0;
+    proiz=a1*b1;
+    return String(proiz);
+  }
+  console.log(multiply("1020303004875647366210", "2774537626200857473632627613"));
+  multiply("1020303004875647366210", "2774537626200857473632627613");
+  2830869077153280552556547081187254342445169156730
