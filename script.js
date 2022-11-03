@@ -597,3 +597,47 @@ if(string.indexOf("thousand")>=0)
   }
   console.log(multiply("0", "30"));
   multiply("0", "30");
+  function sumIntervals(intervals) {
+    let arr=[];
+    let sum=0;
+    let str1=0;
+    let item='';
+   
+   const summa=intervals.forEach(function(elem){
+  for(let i=0; i<elem.length; i++)
+      {
+        if((Math.abs(elem[i])/1000000)>1)
+            {let summaBig=[];
+              item=String(Math.abs(elem[i])).split('');
+             
+              for(let j=0; j<item.length;j++)
+              { summaBig.push(+item[j]+0);
+              }
+                str1+=+summaBig.join('');
+              }
+    
+         else if(arr.indexOf(elem[i],0)>=0)
+          { for(let k=elem[i];k<=elem[1]; k++)
+            { 
+              if(arr.includes(k, 0)==false)
+              { sum++;
+                arr.push(k);
+                console.log(arr,sum);
+              }
+            }
+          }
+          else{
+            sum+=elem[1]-elem[i];
+            for(let t=elem[i];t<=elem[1]; t++)
+            { arr.push(t);
+              console.log(arr,sum);}
+            }
+      }        
+    return sum;
+   });
+   
+  
+   return sum==0?str1: str1==""? sum: str1+sum;
+  }
+  console.log(sumIntervals([[1, 5], [10, 20], [1, 6], [16, 19], [5, 11]]));
+  sumIntervals([[1, 5], [10, 20], [1, 6], [16, 19], [5, 11]]);
